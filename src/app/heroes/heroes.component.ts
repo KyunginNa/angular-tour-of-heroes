@@ -35,4 +35,11 @@ export class HeroesComponent {
 
     this.heroService.addHero({ name: value } as Hero).subscribe(hero => this.heroes.push(hero))
   }
+
+  delete(id: number) {
+    this.heroService.deleteHero(id).subscribe(() => {
+      this.getHeroes();
+      window.alert("The hero is successfully deleted!")
+    })
+  }
 }
